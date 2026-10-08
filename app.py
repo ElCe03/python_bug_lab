@@ -5,6 +5,8 @@ This module contains 20 simple utility functions.
 Each function contains ONE intentional, realistic beginner-level bug.
 Do not modify the function signatures. Fix the logic inside each function.
 """
+from transformers.models.xlm.tokenization_xlm import lowercase_and_remove_accent
+
 
 # =====================================================================
 # CATEGORY 1: MATH & STATISTICS (Bugs 1 - 5)
@@ -80,7 +82,7 @@ def is_palindrome(text: str) -> bool:
     Expected: Case-insensitive check (e.g. "Racecar" -> True).
     """
     # BUG: Compares without lowercasing
-    cleaned = text.replace(" ", "")
+    cleaned = lowercase_and_remove_accent(text.replace(" ", ""))
     return cleaned == cleaned[::-1]
 
 
